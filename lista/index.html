@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de programação usando javascript</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="form-inline">
+                <div class="form-group mx-sm-3 mb-2">
+                <label class="sr-only">item</label>
+                <input type="text" class="form-control" id="item" placeholder="Item">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" onclick="adicionar()">Adicionar</button>
+            <hr>
+            </div>
+            <div id="app"></div>
+        </div>
+    </div>
+      
+</body>
+<script>
+    var itens = [];
+
+
+    function adicionar() {
+        var inputElement = document.querySelector("#item").value;
+        itens.push(inputElement);
+        document.querySelector('#app').innerHTML = list(itens).outerHTML;
+    }
+
+    function list(array) {
+        //Cria a lista do elemento
+        var listElement = document.createElement("ul");
+
+        //listElement.setAttribute('id', 'myList');   
+
+        for (var i = 0; i < array.length; i++) {
+            //Cria a lista de item
+            var itemElement = document.createElement('li');
+
+            //Defini seu conteudo
+            itemElement.appendChild(document.createTextNode(array[i]));
+
+            //Adiciona um item a lista
+            listElement.appendChild(itemElement);
+        }
+    return listElement;
+    }
+</script>
+</html>
