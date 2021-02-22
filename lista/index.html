@@ -4,51 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bulma.css">
+
+    <title>Logica de programação usando javascript</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logica de programação usando javascript</title>
 </head>
 <body>
-    <div class="main">
-        <div class="container">
-            <div class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                <label class="sr-only">item</label>
-                <input type="text" class="form-control" id="item" placeholder="Item">
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="menu">
+                    <div class="textMenu">
+                        <div class="form-inline">
+                            <div class="form-group mx-sm-3 mb-2">
+                            <label class="sr-only" id="textMenu">L i s t a</label>
+                            <br>
+                            <input class="input is-link" type="text" id="item" placeholder="Item desejado">                           
+                        </div>
+                    </div>
+                    <br>
+                    <button class="button is-focused" onclick="adicionar()" id="btnMenu">adicionar</button>
+                    <hr id="enfeite">
+                    </div>
+                </div>
+                <div id="app"></div>
             </div>
-            <button type="submit" class="btn btn-primary mb-2" onclick="adicionar()">Adicionar</button>
-            <hr>
-            </div>
-            <div id="app"></div>
         </div>
-    </div>
-      
-</body>
-<script>
-    var itens = [];
-
-
-    function adicionar() {
-        var inputElement = document.querySelector("#item").value;
-        itens.push(inputElement);
-        document.querySelector('#app').innerHTML = list(itens).outerHTML;
-    }
-
-    function list(array) {
-        //Cria a lista do elemento
-        var listElement = document.createElement("ul");
-
-        //listElement.setAttribute('id', 'myList');   
-
-        for (var i = 0; i < array.length; i++) {
-            //Cria a lista de item
-            var itemElement = document.createElement('li');
-
-            //Defini seu conteudo
-            itemElement.appendChild(document.createTextNode(array[i]));
-
-            //Adiciona um item a lista
-            listElement.appendChild(itemElement);
+          
+    </body>
+    <script>
+        var itens = [];
+    
+    
+        function adicionar() {
+            var inputElement = document.querySelector("#item").value;
+            itens.push(inputElement);
+            document.querySelector('#app').innerHTML = list(itens).outerHTML;
         }
-    return listElement;
-    }
-</script>
-</html>
+    
+        function list(array) {
+            //Cria a lista do elemento
+            var listElement = document.createElement("ul");
+    
+            for (var i = 0; i < array.length; i++) {
+                //Cria a lista de item
+                let divElement = document.createElement('div');
+                divElement.className="card"
+                var itemElement = document.createElement('li');
+                
+                //Defini seu conteudo
+                divElement.appendChild(document.createTextNode(array[i]));
+                itemElement.appendChild(divElement);
+    
+                //Adiciona um item a lista
+                listElement.appendChild(itemElement);
+            }
+        return listElement;
+        }
+    </script>
+    </html>
