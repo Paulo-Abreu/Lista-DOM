@@ -7,10 +7,21 @@
 #textMenu{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100px;
+    
 }
 #enfeite{
     color: black;
 }
 .card{
     font-size: 50px;
+}
+.card{
+    padding: 20px;
+    font-size: 40px;
+}
+#item{
+    width: 600px;
+}
+.title{
+    margin-bottom: 30px;
 }
